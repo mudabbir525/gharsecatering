@@ -5,6 +5,7 @@ import About from './components/About';
 import Services from './components/Services';
 // import StudyDestinations from './components/StudyDestinations';
 import Contact from './components/Contact';
+import ChefProfile from './components/ChefProfile';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         {/* Add other routes as you build more pages */}
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/chef/:id" element={<ChefProfile />} />
         {/* <Route path="/destinations" element={<StudyDestinations />} /> */}
         <Route path="/contact" element={<Contact />} />
       </Routes>
