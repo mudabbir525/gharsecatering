@@ -33,13 +33,13 @@ const ChefProfile = () => {
     speciality: "North Indian Cuisine",
     rating: 4.8,
     reviews: 127,
-    experience: "10+ years",
+    // experience: "10+ years",
     bio: "I'm a home chef specializing in authentic North Indian cuisine. With over 10 years of cooking experience, I bring the flavors of Punjab, Delhi, and Rajasthan right to your doorstep. My passion is to create memorable food experiences for families and gatherings using traditional recipes passed down through generations.",
     location: "Indiranagar, Bangalore",
     phone: "+91 98765 43210",
     email: "priya.sharma@example.com",
     certifications: ["FSSAI Certified", "Culinary Arts Diploma"],
-    languages: ["English", "Hindi", "Punjabi"],
+    // languages: ["English", "Hindi", "Punjabi"],
     profileImage: "https://images.unsplash.com/photo-1556911073-a517e752729c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     coverImage: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
     gallery: [
@@ -268,10 +268,10 @@ const ChefProfile = () => {
                     <MapPin className="h-4 w-4 mr-1 text-[#FF8C42]" />
                     <span>{chef.location}</span>
                   </div>
-                  <div className="flex items-center mr-4 mb-2">
+                  {/* <div className="flex items-center mr-4 mb-2">
                     <Clock className="h-4 w-4 mr-1 text-[#FF8C42]" />
                     <span>{chef.experience}</span>
-                  </div>
+                  </div> */}
                   <div className="flex items-center mb-2">
                     <Award className="h-4 w-4 mr-1 text-[#FF8C42]" />
                     <span>{chef.certifications[0]}</span>
@@ -306,7 +306,7 @@ const ChefProfile = () => {
                 </ul>
               </div>
               
-              <div className="border-t border-gray-200 pt-4 mt-4">
+              {/* <div className="border-t border-gray-200 pt-4 mt-4">
                 <h4 className="font-semibold text-[#2E2E2E] mb-2">Languages</h4>
                 <div className="flex flex-wrap">
                   {chef.languages.map((language, index) => (
@@ -318,7 +318,7 @@ const ChefProfile = () => {
                     </span>
                   ))}
                 </div>
-              </div>
+              </div> */}
               
               <div className="border-t border-gray-200 pt-4 mt-4">
                 <h4 className="font-semibold text-[#2E2E2E] mb-2">Special Services</h4>
