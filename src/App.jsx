@@ -3,9 +3,10 @@ import Homepage from './components/Homepage';
 // Other pages will be imported here as you build them
 import About from './components/About';
 import Services from './components/Services';
-// import StudyDestinations from './components/StudyDestinations';
 import Contact from './components/Contact';
 import ChefProfile from './components/ChefProfile';
+import Chefs from './components/Chefs';
+import BecomeChef from './components/BecomeChef';
 
 function App() {
   return (
@@ -17,7 +18,10 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
         <Route path="/chef/:id" element={<ChefProfile />} />
-        {/* <Route path="/destinations" element={<StudyDestinations />} /> */}
+        <Route path="/chefs" element={<Chefs />} />
+        <Route path="/become-chef" element={<BecomeChef />} />
+        
+        
         <Route path="/contact" element={<Contact />} />
       </Routes>
     </Router>

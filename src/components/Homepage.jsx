@@ -116,7 +116,7 @@ const Homepage = () => {
                                 Connect with certified home chefs in your area for authentic, homemade meals perfect for any occasion
                             </p>
                             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                                <Link to="/find-chef" className="bg-[#FF8C42] text-white px-6 py-3 rounded-full font-medium hover:bg-[#e67e3a] transition duration-300 text-center">
+                                <Link to="/chefs" className="bg-[#FF8C42] text-white px-6 py-3 rounded-full font-medium hover:bg-[#e67e3a] transition duration-300 text-center">
                                     Find a Home Chef
                                 </Link>
                                 <Link to="/become-chef" className="bg-transparent border-2 border-[#FFF4E0] text-[#FFF4E0] px-6 py-3 rounded-full font-medium hover:bg-[#FFF4E0]/20 transition duration-300 text-center">

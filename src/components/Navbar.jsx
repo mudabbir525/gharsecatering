@@ -1,9 +1,32 @@
-import React, { useState } from 'react';
-import { Menu, X, ShoppingBag, User, Search } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Menu, X, Search } from 'lucide-react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [isOnChefsPage, setIsOnChefsPage] = useState(false);
+
+  // Check if current page is the chefs page
+  useEffect(() => {
+    setIsOnChefsPage(location.pathname === '/chefs');
+  }, [location.pathname]);
+
+  const handleSearchFocus = () => {
+    // Only navigate if not already on chefs page
+    if (!isOnChefsPage) {
+      navigate('/chefs');
+      
+      // Optional: After a small delay, focus the search bar on the chefs page
+      setTimeout(() => {
+        const chefsSearchInput = document.getElementById('chefs-search');
+        if (chefsSearchInput) {
+          chefsSearchInput.focus();
+        }
+      }, 100);
+    }
+  };
 
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
@@ -35,22 +58,19 @@ const Navbar = () => {
             </Link>
           </div>
 
-          <div className="hidden md:flex items-center space-x-4">
-            <div className="relative">
+          {/* Always show search bar container, but disable when on chefs page */}
+          <div className="hidden md:flex items-center">
+            <div className={`relative ${isOnChefsPage ? 'invisible' : 'visible'}`}>
               <input
                 type="text"
-                placeholder="Search..."
+                placeholder="Search chefs..."
                 className="pl-10 pr-4 py-2 border border-gray-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-[#FF8C42]"
+                onFocus={handleSearchFocus}
+                onClick={handleSearchFocus}
+                disabled={isOnChefsPage}
               />
               <Search className="absolute left-3 top-2.5 h-4 w-4 text-gray-400" />
             </div>
-            <Link to="/cart" className="text-[#2E2E2E] hover:text-[#FF8C42]">
-              <ShoppingBag className="h-6 w-6" />
-            </Link>
-            <Link to="/login" className="bg-[#FF8C42] text-white px-4 py-2 rounded-full font-medium hover:bg-[#e67e3a] transition duration-300">
-              <User className="h-5 w-5 inline mr-1" />
-              Login
-            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -84,22 +104,18 @@ const Navbar = () => {
             <Link to="/contact" className="block text-[#2E2E2E] hover:text-[#FF8C42] px-3 py-2 rounded-md font-medium">
               Contact
             </Link>
-            <div className="relative mt-3">
+            
+            {/* Make search bar in mobile menu invisible when on chefs page */}
+            <div className={`relative mt-3 ${isOnChefsPage ? 'invisible' : 'visible'}`}>
               <input
                 type="text"
-                placeholder="Search..."
+                placeholder="Search chefs..."
                 className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-[#FF8C42]"
+                onFocus={handleSearchFocus}
+                onClick={handleSearchFocus}
+                disabled={isOnChefsPage}
               />
               <Search className="absolute left-3 top-2.5 h-4 w-4 text-gray-400" />
-            </div>
-            <div className="flex space-x-4 mt-4">
-              <Link to="/cart" className="text-[#2E2E2E] hover:text-[#FF8C42]">
-                <ShoppingBag className="h-6 w-6" />
-              </Link>
-              <Link to="/login" className="bg-[#FF8C42] text-white px-4 py-2 rounded-full font-medium hover:bg-[#e67e3a] transition duration-300">
-                <User className="h-5 w-5 inline mr-1" />
-                Login
-              </Link>
             </div>
           </div>
         </div>
